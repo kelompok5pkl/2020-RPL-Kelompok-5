@@ -26,6 +26,10 @@ Route::get('/cek_role', 'AuthController@roles');
 
 	Route::group(['middleware' => ['role:admin']], function () {
 		Route::get('/admin', function (){ return 'ini admin'; });
+		Route::get('/admin/dashboard','AdminController@index');
+		Route::get('/admin/daftar-tabungan','AdminController@daftartabungan');
+		Route::get('/admin/daftar-kelas', 'AdminController@daftarkelas');
+		Route::post('/admin/daftar-kelas', 'AdminController@saveKelas');
 		
 	});
 
@@ -36,7 +40,10 @@ Route::get('/cek_role', 'AuthController@roles');
 		
 	});
 
+
 	Route::group(['middleware' => ['role:siswa']], function () {
 		Route::get('/siswa', function (){ return 'ini siswa'; });
 		
 	});
+
+	Route::get('/index', 'HomeController@pageblank');
