@@ -1,4 +1,4 @@
 @extends('layouts.admin-master')
-@section('risma')
+@section('content')
 RISMA EBEL
 @endsection

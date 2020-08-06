@@ -18,9 +18,9 @@ class AdminController extends Controller
 
 public function daftarKelas()
 {
-	$major = MajorsModel::all();
+	$majors = MajorsModel::all();
 
-	return view('admin.daftarkelas', compact('major'));
+	return view('admin.daftarkelas', compact('majors'));
 }
 public function saveKelas(Request $request)
 {
