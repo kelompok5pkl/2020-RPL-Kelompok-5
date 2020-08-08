@@ -94,26 +94,28 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                      <form method="post">
-                      @csrf
-                        <div class="form-group row">
-                            <label for="input-1" class="col-sm-2 col-form-label">Nama Kelas</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="input-1" required="">
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
-                            <div class="col-sm-8">
-                            <select class="form-control" name="id_majors" required="">
-                                <option value="">Pilih Kelas</option>
-                                @foreach($majors as $data)
-                                    <option value="{{ $data->id }}">{{ $data->majors_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                      </div>
+                      <form method="post">
+                        @csrf
+                            <div class="form-group row">
+                                <label for="input-1" class="col-sm-2 col-form-label">Nama Kelas</label>
+                                <div class="col-sm-8">
+                                <input type="text" class="form-control" id="input-1" required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="id_majors" required="">
+                                        <option value="">Pilih Kelas</option>
+                                            @foreach($majors as $data)
+                                                <option value="{{ $data->id }}">{{ $data->majors_name }}</option>
+                                            @endforeach
+                                    </select>
+                                </div>
+                          </div>
+
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save changes</button>
@@ -122,4 +124,5 @@
                   </div>
                 </div>
             </form>
+            
       @endsection

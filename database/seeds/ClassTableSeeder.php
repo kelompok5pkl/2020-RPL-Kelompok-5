@@ -12,8 +12,11 @@ class ClassTableSeeder extends Seeder
     public function run()
     {
         DB::table('class')->insert([
-            'id_majors'  => '1',
-        	'class_name' => 'XII'
+            ['id_majors'  => '1',
+        	'class_name' => 'XII'], 
+            
+            ['id_majors' => '2',
+            'class_name' => 'XI']
         ]);
     }
 }

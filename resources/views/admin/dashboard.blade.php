@@ -1,4 +1,4 @@
 @extends('layouts.admin-master')
 @section('content')
-RISMA EBEL
+KELOMPOK 5
 @endsection
