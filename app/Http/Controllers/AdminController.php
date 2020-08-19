@@ -17,11 +17,13 @@ class AdminController extends Controller
     	return view('admin.daftartabungan');
     }
 
-    public function daftarKelas()
+   public function daftarKelas()
     {
-    	$majors = MajorsModel::all();
-
-    	return view('admin.daftarkelas', compact('majors'));
+        $no = 1;
+        $majors = MajorsModel::all();
+        $class = ClassModel::join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
+        ->get();
+        return view('admin.daftarkelas', compact('class','majors','no'));
     }
     public function saveKelas(Request $request)
     {
@@ -31,5 +33,16 @@ class AdminController extends Controller
     	$insert->save();
     	return redirect('admin/daftar-kelas');
     }
+    public function Updatekelas(Request $request){
+        $class = ClassModel::whereId($request->input('id'))->first();
+        $class->class_name = $request->input('');
+        $class->id_majors  = $request->input('id_majors');
+        $class->save();
+        return back();
+    }
 
+    public function DeleteKelas(Request $request){
+        $class = ClassModel::whereId($request->input('id'))->delete();
+        return back();
+    }
 }

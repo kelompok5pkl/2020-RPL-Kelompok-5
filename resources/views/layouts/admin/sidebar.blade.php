@@ -8,25 +8,16 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="index.html" class="waves-effect">
-          <i class="icon-home"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="sidebar-submenu">
-          <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-          <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          <li><a href="index3.html"><i class="fa fa-circle-o"></i> Dashboard v3</a></li>
-          <li><a href="index4.html"><i class="fa fa-circle-o"></i> Dashboard v4</a></li>
-        </ul>
       </li>
 
       <li>
-        <a href="index.html" class="waves-effect">
+        <a href="#" class="waves-effect">
           <i class="icon-home"></i> <span>Manage</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Daftar Kelas</a></li>
-          <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Daftar Tabungan</a></li>
-          <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Tambah Siswa</a></li>
+          <li><a href="{{URL::to('/admin/daftar-kelas')}}"><i class="fa fa-circle-o"></i> Daftar Kelas</a></li>
+          <li><a href="{{URL::to('/admin/daftar-tabungan')}}"><i class="fa fa-circle-o"></i> Daftar Tabungan</a></li>
+           <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Tambah Siswa</a></li>
           <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Tambah Wali Kelas</a></li>
         </ul>
       </li>

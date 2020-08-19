@@ -24,16 +24,18 @@ Route::get('/cek_role', 'AuthController@roles');
 
 
 
-	Route::group(['middleware' => ['role:admin01']], function () {
+	Route::group(['middleware' => ['role:admin']], function () {
 		// Route::get('/admin', function (){ return 'ini admin'; });
 		Route::get('/admin/dashboard','AdminController@index');
 		Route::get('/admin/daftar-tabungan','AdminController@daftartabungan');
 		Route::get('/admin/daftar-kelas', 'AdminController@daftarkelas');
 		Route::post('/admin/daftar-kelas', 'AdminController@saveKelas');
+		Route::post('/admin/update/kelas', 'AdminController@updateKelas');
+		Route::post('/admin/delete/kelas', 'AdminController@deleteKelas');
 		
 	});
 
-	Route::group(['middleware' => ['role:guru01']], function () {
+	Route::group(['middleware' => ['role:guru']], function () {
 		Route::get('/guru', function (){ return 'ini guru'; });
 		Route::get('/guru/daftar-honor', function (){ return 'ini GAJI guru'; });
 
@@ -41,9 +43,6 @@ Route::get('/cek_role', 'AuthController@roles');
 	});
 
 
-	Route::group(['middleware' => ['role:siswa01']], function () {
-		Route::get('/siswa', function (){ return 'ini siswa'; });
-		
-	});
+	
 
 	Route::get('/index', 'HomeController@pageblank');

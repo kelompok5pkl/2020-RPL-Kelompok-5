@@ -12,7 +12,9 @@ class MajorsTableSeeder extends Seeder
     public function run()
     {
         DB::table('majors')->insert([
-        	'majors_name' => 'RPL'
+        	['majors_name' => 'RPL'],
+            ['majors_name' => 'MM']
+
         ]);
     }
 }
