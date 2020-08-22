@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12">
-    <button class="btn btn-primary m-1" data-toggle="modal" data-target="#defaultsizemodal">Tambah Kelas</button>
+    <button class="btn btn-primary m-1" data-toggle="modal" data-target="#AddStudent">Tambah Siswa</button>
     <div class="card">
       <div class="card-header"><i class="fa fa-table"></i> Data Kelas</div>
       <div class="card-body">
@@ -11,53 +11,63 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama Kelas</th>
-                <th>Juusan</th>
+                <th>Nis</th>
+                <th>Nama Siswa</th>
+                <th>Kelas</th>
+                <th>Jurusan</th>
                 <th class="text-center" style="width: 180px;">Aksi</th>
               </tr>
             </thead>
-            @foreach($class as $data)
+            @foreach($student as $data)
             <tr>
               <td>{{$no++}}</td>
+              <td>{{$data->nisn}}</td>
+              <td>{{$data->name_student}}</td>
               <td>{{$data->class_name}}</td>
               <td>{{$data->majors_name}}</td>
               <td class="text-center">
-                <form action="{{URL::to('/admin/delete/kelas')}}" method="post">
+
+                <form action="{{URL::to('/admin/delete/student')}}" method="post">
                 @csrf
-                <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->id}}">Edit</button>
-                <input type="hidden" name="id" value="{{$data->id}}">
+                <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->id_student}}">Edit</button>
+                <input type="hidden" name="id" value="{{$data->id_student}}">
                 <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                 </form>
-
               </td>
             </tr>
-
-             <div class="modal fade" id="edit{{$data->id}}">
+            <div class="modal fade" id="edit{{$data->id_student}}">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-star"></i> Modal title</h5>
+                    <h5 class="modal-title"><i class="fa fa-star"></i> Edit Siswa</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form method="post" action="{{URL::to('/admin/update/kelas')}}">
+                  <form method="post" action="{{URL::to('/admin/update/student')}}">
                   @csrf
-                  <input type="hidden" value="{{$data->id}}" name="id">
                   <div class="modal-body">
                         <div class="form-group row">
-                          <label for="input-1" class="col-sm-2 col-form-label">Nama Kelas</label>
+                        <input type="hidden" value="{{$data->id_student}}" name="id">
+                          <label for="input-1" class="col-sm-2 col-form-label">NISN</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="class_name" value="{{$data->class_name}}" id="input-1" required="">
+                            <input type="number" value="{{$data->nisn}}" readonly class="form-control" name="nisn" id="input-1" required="">
                           </div>
                         </div>
                         <div class="form-group row">
+                          <label for="input-1" class="col-sm-2 col-form-label">Nama Siswa</label>
+                          <div class="col-sm-8">
+                            <input type="text" value="{{$data->name_student}}" class="form-control" name="student_name" id="input-1" required="">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
                             <div class="col-sm-8">
-                              <select class="form-control" name="id_majors" required="">
+                              <select class="form-control" name="id_class" required="">
                                 <option value="">Pilih Kelas</option>
-                                @foreach($majors as $data)
-                                <option value="{{ $data->id_majors }}">{{ $data->majors_name }}</option>
+                                @foreach($class as $data)
+                                <option value="{{ $data->id }}">{{ $data->class_name}}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -71,6 +81,7 @@
                 </div>
               </div>
             </div>
+
 
             @endforeach
           </table>
@@ -87,11 +98,11 @@
 
 
 @endsection
- <div class="modal fade" id="defaultsizemodal">
+ <div class="modal fade" id="addStudent">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"><i class="fa fa-star"></i> Modal title</h5>
+        <h5 class="modal-title"><i class="fa fa-star"></i> Tambah Siswa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -100,18 +111,25 @@
       @csrf
       <div class="modal-body">
             <div class="form-group row">
-              <label for="input-1" class="col-sm-2 col-form-label">Nama Kelas</label>
+              <label for="input-1" class="col-sm-2 col-form-label">NISN</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="class_name" id="input-1" required="">
+                <input type="number" class="form-control" name="nisn" id="input-1" required="">
               </div>
             </div>
             <div class="form-group row">
+              <label for="input-1" class="col-sm-2 col-form-label">Nama Siswa</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="name_student" id="input-1" required="">
+              </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
                 <div class="col-sm-8">
-                  <select class="form-control" name="id_majors" required="">
+                  <select class="form-control" name="id_" required="">
                     <option value="">Pilih Kelas</option>
-                    @foreach($majors as $data)
-                    <option value="{{ $data->id_majors }}">{{ $data->majors_name }}</option>
+                    @foreach($class as $data)
+                    <option value="{{ $data->id }}">{{ $data->class_name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -125,4 +143,8 @@
     </div>
   </div>
 </div>
+
+
+
+
 

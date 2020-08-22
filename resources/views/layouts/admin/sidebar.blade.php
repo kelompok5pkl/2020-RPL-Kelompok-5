@@ -15,10 +15,10 @@
           <i class="icon-home"></i> <span>Manage</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('/admin/daftar-kelas')}}"><i class="fa fa-circle-o"></i> Daftar Kelas</a></li>
-          <li><a href="{{URL::to('/admin/daftar-tabungan')}}"><i class="fa fa-circle-o"></i> Daftar Tabungan</a></li>
-           <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Tambah Siswa</a></li>
-          <li><a href="{{URL::to('/')}}"><i class="fa fa-circle-o"></i> Tambah Wali Kelas</a></li>
+          <li><a href="{{URL::to('/admin/list-class')}}"><i class="fa fa-circle-o"></i>List Class</a></li>
+           <li><a href="{{URL::to('/admin/list-student')}}"><i class="fa fa-circle-o"></i> List Student</a></li>
+           <li><a href="{{URL::to('/admin/list-teacher')}}"><i class="fa fa-circle-o"></i> List Teacher</a></li>
+          <li><a href="{{URL::to('/admin/list-homeroom-teacher')}}"><i class="fa fa-circle-o"></i> List Homeroom Teacher</a></li>
         </ul>
       </li>
 

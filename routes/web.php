@@ -25,14 +25,25 @@ Route::get('/cek_role', 'AuthController@roles');
 
 
 	Route::group(['middleware' => ['role:admin']], function () {
-		// Route::get('/admin', function (){ return 'ini admin'; });
-		Route::get('/admin/dashboard','AdminController@index');
-		Route::get('/admin/daftar-tabungan','AdminController@daftartabungan');
-		Route::get('/admin/daftar-kelas', 'AdminController@daftarkelas');
-		Route::post('/admin/daftar-kelas', 'AdminController@saveKelas');
-		Route::post('/admin/update/kelas', 'AdminController@updateKelas');
-		Route::post('/admin/delete/kelas', 'AdminController@deleteKelas');
 		
+		//AdminController
+		Route::get('/admin/dashboard','AdminController@index');
+		Route::get('/admin/list-class', 'AdminController@listClass');
+		Route::post('/admin/list-class', 'AdminController@saveClass');
+		Route::post('/admin/update/class', 'AdminController@updateClass');
+		Route::post('/admin/delete/class', 'AdminController@deleteClass');
+
+		//StudentController
+		Route::get('/admin/list-student', 'StudentController@listStudent');
+		Route::post('/admin/list-student', 'StudentController@listStudent');
+		Route::post('/admin/list-student','StudentController@addStudent');
+
+
+		//TeacherController
+		Route::get('/admin/list-teacher','TeacherController@listTeacher');
+		Route::post('/admin/list-teacher','TeacherController@listTeacher');
+		Route::post('/admin/list-teacher','TeacherController@addTeacher');
+		Route::post('/admin/update/teacher','TeacherController@updateTeacher');
 	});
 
 	Route::group(['middleware' => ['role:guru']], function () {
