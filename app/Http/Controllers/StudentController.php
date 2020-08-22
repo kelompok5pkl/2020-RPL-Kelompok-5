@@ -20,9 +20,10 @@ class StudentController extends Controller
 		$class = ClassModel::all();
 		return view('admin.list-student', compact('student', 'no', 'class'));
     }
+
     public function addStudent(Request $request){
     	$validator = Validator::make($request->all(), [
-    		'nisn' => 'required|min:9|max:9|unique:students',
+    		'nisn' => 'required|min:3|max:10|unique:students',
     	], 	
     	[
     		'nisn.required' => 'NISN Sudah Tersedia',
@@ -33,5 +34,7 @@ class StudentController extends Controller
     	$create = Student::create($request->all());
     	return back()->withSuccess('Tambah Siswa Berhasil');
     }
+
+
     
 }

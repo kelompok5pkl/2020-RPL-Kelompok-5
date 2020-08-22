@@ -33,27 +33,24 @@ class AdminController extends Controller
     public function updateClass(Request $request){
       $Validator  = Validator::make($request->all(), [
         'class_name' =>'required|min:8',
-        'id_majors' => 'required|max:11|unique:class'],
-        ['class_name.required' => 'Class Name Sudah Tersedia',
-         'id_majors.required' => 'Id Sudah Tersedia'
-      ]);
+        
+        ]);
 
       if($Validator->fails()){
 
             return back()->withToastError('class name Sudah digunakan');
         }
 
-      $update = ClassModel::update($request->all());
-      return back()->withSucces('Updatekelas berhasil');
+     
+        $class = ClassModel::whereId($request->input('id'))->first();
+        $class->class_name = $request->input('class_name');
+        $class->id_majors  = $request->input('id_majors');
+        $class->save();
+        return back();
+    
     }
     
-    // public function Updatekelas(Request $request){
-    //     $class = ClassModel::whereId($request->input('id'))->first();
-    //     $class->class_name = $request->input('class_name');
-    //     $class->id_majors  = $request->input('id_majors');
-    //     $class->save();
-    //     return back();
-    // }
+    
 
     public function deleteClass(Request $request){
         $class = ClassModel::whereId($request->input('id'))->delete();

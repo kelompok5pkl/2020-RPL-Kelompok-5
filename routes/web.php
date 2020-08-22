@@ -35,7 +35,7 @@ Route::get('/cek_role', 'AuthController@roles');
 
 		//StudentController
 		Route::get('/admin/list-student', 'StudentController@listStudent');
-		Route::post('/admin/list-student', 'StudentController@listStudent');
+		
 		Route::post('/admin/list-student','StudentController@addStudent');
 
 
@@ -45,6 +45,18 @@ Route::get('/cek_role', 'AuthController@roles');
 		Route::post('/admin/list-teacher','TeacherController@addTeacher');
 		Route::post('/admin/update/teacher','TeacherController@updateTeacher');
 		Route::post('/admin/delete/teacher','TeacherController@deleteTeacher');
+		
+		Route::post('/admin/set/homeroom-teacher' , 'TeacherController@SetHomeroomTeacher');
+		Route::get('/admin/list/homeroom-teacher' , 'TeacherController@listHomeroomTeacher');
+		Route::post('/admin/update/teacher' , 'TeacherController@updateTeacher');
+		Route::post('/admin/delete/teacher' , 'TeacherController@deleteTeacher');
+		Route::post('/admin/delete/homeroom-teacher' , 'TeacherController@DeleteHomeRoomTeacher');
+
+		//SavingsController
+		Route::get('/admin/list-saving' , 'SavingController@listSaving');
+		Route::get('/admin/list-saving/detail/{id}' , 'SavingController@detailSaving');
+		Route::get('/admin/list-saving/detail/student/{id}' , 'SavingController@studentSavingDetail');
+		Route::post('/admin/saving' , 'SavingController@Saving');
 	});
 
 	Route::group(['middleware' => ['role:guru']], function () {

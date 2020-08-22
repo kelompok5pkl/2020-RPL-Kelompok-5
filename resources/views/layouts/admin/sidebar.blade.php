@@ -18,8 +18,14 @@
           <li><a href="{{URL::to('/admin/list-class')}}"><i class="fa fa-circle-o"></i>List Class</a></li>
            <li><a href="{{URL::to('/admin/list-student')}}"><i class="fa fa-circle-o"></i> List Student</a></li>
            <li><a href="{{URL::to('/admin/list-teacher')}}"><i class="fa fa-circle-o"></i> List Teacher</a></li>
-          <li><a href="{{URL::to('/admin/list-homeroom-teacher')}}"><i class="fa fa-circle-o"></i> List Homeroom Teacher</a></li>
+          <li><a href="{{URL::to('/admin/list/homeroom-teacher')}}"><i class="fa fa-circle-o"></i> List Homeroom Teacher</a></li>
+
         </ul>
+      </li>
+      <li>
+        <a href="{{URL::to('/admin/list-saving')}}" class="waves-effect">
+          <i class="icon-home"></i> <span>Tabungan</span></i>
+        </a>
       </li>
 
 

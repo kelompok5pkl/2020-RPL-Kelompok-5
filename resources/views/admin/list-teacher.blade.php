@@ -11,8 +11,8 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nis</th>
                 <th>Nama Guru</th>
+                <th>Email</th>
                 <th class="text-center" style="width: 180px;">Action</th>
               </tr>
             </thead>

@@ -15,7 +15,8 @@ class CreateSavingsTable extends Migration
     {
         Schema::create('savings', function (Blueprint $table) {
             $table->increments('id_saving');
-            $tablel->int('id_students','id_class');
+            $table->integer('id_students');
+            $table->integer('id_class');
             $table->string('nominal');
             $table->string('status');
             $table->timestamps();

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use App\ClassModel;
 use App\User;
+use App\HomeroomTeacher;
+
 
 class TeacherController extends Controller
 {
@@ -60,4 +62,35 @@ class TeacherController extends Controller
    		User::whereId($request->input('id'))->delete();
    		return back()->withToashSucces('Berhasil Di Hapus');
     }
+
+
+        public function listHomeroomTeacher(Request $request){
+        $teacher = User::Role('guru')->get();
+        $class = ClassModel::all();
+        $wl = HomeroomTeacher::join('users' , 'users.id' , '=' , 'homeroom_teacher.id_teacher')
+            ->join('class' , 'class.id' , '=' , 'homeroom_teacher.id_class')
+            ->join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
+            ->get();
+        $no = 1;
+        return view ('admin.daftar-wali-kelas',compact('teacher','class','wl','no'));
+    }
+    
+    public function SetHomeroomTeacher(Request $request){
+        $wl = HomeroomTeacher::whereIdTeacher($request->input('id_teacher'))->first();
+        if($wl){
+            return back()->withToastError('Gagal, Guru Sudah Menjadi Wali kelas');
+        } else {
+            $create = new HomeroomTeacher();
+            $create->id_teacher = $request->input('id_teacher');
+            $create->id_class = $request->input('id_class');
+            $create->save();
+            return back()->withSuccess('Berhasil Menjadikan Wali Kelas');
+        }
+    }
+
+    public function DeleteHomeroomTeacher(Request $request){
+        HomeroomTeacher::whereIdHomeroomTeacher($request->input('id'))->delete();
+        return back()->withSuccess('Data Berhasil Dihapus');
+    }
+
 }

@@ -126,7 +126,7 @@
             <div class="form-group row">
                 <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
                 <div class="col-sm-8">
-                  <select class="form-control" name="id_" required="">
+                  <select class="form-control" name="class_student" required="">
                     <option value="">Pilih Kelas</option>
                     @foreach($class as $data)
                     <option value="{{ $data->id }}">{{ $data->class_name }}</option>
