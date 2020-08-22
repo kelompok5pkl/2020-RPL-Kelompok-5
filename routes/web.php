@@ -44,6 +44,7 @@ Route::get('/cek_role', 'AuthController@roles');
 		Route::post('/admin/list-teacher','TeacherController@listTeacher');
 		Route::post('/admin/list-teacher','TeacherController@addTeacher');
 		Route::post('/admin/update/teacher','TeacherController@updateTeacher');
+		Route::post('/admin/delete/teacher','TeacherController@deleteTeacher');
 	});
 
 	Route::group(['middleware' => ['role:guru']], function () {

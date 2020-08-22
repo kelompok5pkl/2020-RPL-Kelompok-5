@@ -54,4 +54,10 @@ class TeacherController extends Controller
 		}
 
     }
+
+    public function deleteTeacher(Request $request)
+    {
+   		User::whereId($request->input('id'))->delete();
+   		return back()->withToashSucces('Berhasil Di Hapus');
+    }
 }
