@@ -53,8 +53,13 @@ class AdminController extends Controller
     
 
     public function deleteClass(Request $request){
-        $class = ClassModel::whereId($request->input('id'))->delete();
-        return back();
+        // $class = ClassModel::whereId($request->input('id'))->delete();
+        // return back();
+
+        $class = ClassModel::whereId($request->input('id'));
+        $class->delete();
+
+        return redirect('admin/list-class');
     }
    
 }

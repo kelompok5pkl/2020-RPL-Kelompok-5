@@ -33,6 +33,25 @@ class StudentController extends Controller
     	}
     	$create = Student::create($request->all());
     	return back()->withSuccess('Tambah Siswa Berhasil');
+        
+    }
+
+    public function updateStudent (Request $request){
+        $update = Student::whereIdStudent($request->input('id'))
+            ->update([
+                'student_name' => $request->input('student_name'),
+                'id_class' => $request->input('id_class')
+            ]);
+        if($update){
+            return back()->withSuccess('Edit Data Berhasil');
+        } else {
+            return back()->withToastError('Update Gagal');
+        }
+    }
+
+    public function deleteStudent(Request $request){
+        $delete = Student::whereIdStudent($request->input('id'))->delete();
+        return back()->withSuccess('Hapus Siswa Berhasil');
     }
 
 

@@ -1,4 +1,5 @@
 <!-- Bootstrap core JavaScript-->
+
   <script src="{{ URL::to ('assets/js/jquery.min.js')}}"></script>
   <script src="{{ URL::to ('assets/js/popper.min.js')}}"></script>
   <script src="{{ URL::to ('assets/js/bootstrap.min.js')}}"></script>

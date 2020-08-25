@@ -76,13 +76,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-outline-primary btn-block waves-effect waves-light">Sign In</button>
-                         <div class="text-center pt-3">
-                        <p>or Sign in with</p>
-                        <a href="javascript:void()" class="btn-social-text btn-outline-facebook waves-effect waves-light m-1"><i class="fa fa-facebook-square"></i> <span>facebook</span></a>
-                        <a href="javascript:void()" class="btn-social-text btn-outline-google-plus waves-effect waves-light m-1"><i class="fa fa-google-plus"></i> <span>google+</span></a>
-                            <hr>
-                        <p class="text-muted">Do not have an account? <a href="authentication-signup2.html"> Sign Up here</a></p>
-                        </div>
+                    
                     </form>
                  </div>
                 </div>

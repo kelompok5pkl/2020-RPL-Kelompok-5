@@ -15,10 +15,11 @@ class CreateClassTable extends Migration
     {
         Schema::create('class', function (Blueprint $table) {
             $table->id();
-            $table->id_majors();
+            $table->foreignId('id_majors')->unique();
+            $table->foreign('id_majors')->references('id_majors')->on('majors');
             $table->string('class_name');
             $table->timestamps();
-            $table->soffDeletes();
+            $table->softDeletes();
         });
     }
 

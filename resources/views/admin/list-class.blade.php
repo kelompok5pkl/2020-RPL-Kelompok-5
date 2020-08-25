@@ -22,7 +22,7 @@
               <td>{{$data->class_name}}</td>
               <td>{{$data->majors_name}}</td>
               <td class="text-center">
-                <form action="{{URL::to('/admin/delete/class')}}" method="post">
+                <form action="{{URL::to('/admin/delete')}}" method="post">
                 @csrf
                 <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->id}}">Edit</button>
                 <input type="hidden" name="id" value="{{$data->id}}">

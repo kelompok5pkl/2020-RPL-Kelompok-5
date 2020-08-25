@@ -31,12 +31,13 @@ Route::get('/cek_role', 'AuthController@roles');
 		Route::get('/admin/list-class', 'AdminController@listClass');
 		Route::post('/admin/list-class', 'AdminController@saveClass');
 		Route::post('/admin/update/class', 'AdminController@updateClass');
-		Route::post('/admin/delete/class', 'AdminController@deleteClass');
+		Route::post('/admin/delete', 'AdminController@deleteClass');
 
 		//StudentController
 		Route::get('/admin/list-student', 'StudentController@listStudent');
-		
 		Route::post('/admin/list-student','StudentController@addStudent');
+		Route::post('/admin/list-student','StudentController@updateStudent');
+		Route::post('/admin/delete/student','StudentController@deleteStudent');
 
 
 		//TeacherController
