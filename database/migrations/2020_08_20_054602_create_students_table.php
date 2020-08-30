@@ -14,10 +14,11 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->increments('id_student');
+            $table->id('id_student');
+            $table->foreignId('class_id');
+            $table->foreign('class_id')->references('class_id')->on('class');
             $table->integer('nisn');
             $table->string('name_student');
-            $table->integer('class_student');
             $table->timestamps();
             $table->softDeletes();
         });

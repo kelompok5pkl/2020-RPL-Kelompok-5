@@ -22,7 +22,7 @@
                 <td>{{$data->class_name}}</td>
                 <td>{{$data->name}}</td>
                 <td class="text-right">Rp. {{number_format($data->total)}}</td>
-                <td class="text-center"><a href="{{URL::to('/admin/list-saving/detail', $data->home_id_class)}}" class="btn btn-primary btn-sm">Detail</a> </td>
+                <td class="text-center"><a href="{{URL::to('/admin/list-saving/detail', $data->home_class_id)}}" class="btn btn-primary btn-sm">Detail</a> </td>
             </tr>
         @endforeach
 

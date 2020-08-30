@@ -14,9 +14,14 @@ class CreateHomeroomTeacherTable extends Migration
     public function up()
     {
         Schema::create('homeroom_teacher', function (Blueprint $table) {
-            $table->increments('id_homeroom_teacher');
-            $table->integer('id_teacher');
-            $table->integer('id_class');
+            $table->id('id_homeroom_teacher');
+
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreignId('class_id');
+            $table->foreign('class_id')->references('class_id')->on('class');
+
             $table->timestamps();
             $table->softDeletes();
         });

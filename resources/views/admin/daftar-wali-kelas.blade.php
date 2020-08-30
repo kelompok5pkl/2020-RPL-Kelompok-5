@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <button class="btn btn-primary m-1" data-toggle="modal" data-target="#SetWaliKelas">Tambah Wali Kelas</button>
     <div class="card">
-      <div class="card-header"><i class="fa fa-table"></i> Data Kelas</div>
+      <div class="card-header"><i class="fa fa-table"></i> Data Wali Kelas</div>
       <div class="card-body">
         <div class="table-responsive">
           <table id="example" class="table table-bordered">
@@ -62,10 +62,10 @@
       <div class="modal-body">
 
       <div class="form-group row">
-        <label for="input-1" class="col-sm-2 col-form-label">Set Kelas</label>
+        <label for="input-1" class="col-sm-2 col-form-label">Set Wali Kelas</label>
         <div class="col-sm-8">
-          <select class="form-control" name="id_teacher" required="">
-            <option value="">Pilih Kelas</option>
+          <select class="form-control" name="id_homeroom_teacher" required="">
+            <option value="">Pilih Guru</option>
             @foreach($teacher as $data)
             <option value="{{ $data->id }}">{{ $data->name }}</option>
             @endforeach

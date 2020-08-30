@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\DB;
 class SavingController extends Controller
 {
     public function ListSaving(){
-	    $data ['saving'] = Saving::join('homeroom_teacher' , 'homeroom_teacher.id_class' , '=' , 'savings.id_class')
-	        ->join('class' , 'class.id' , 'savings.id_class')
-		    ->join('users' , 'users.id' , '=' , 'homeroom_teacher.id_teacher')
+	    $data ['saving'] = Saving::join('homeroom_teacher' , 'homeroom_teacher.class_id' , '=' , 'savings.class_id')
+	        ->join('class' , 'class.class_id' , 'savings.class_id')
+		    ->join('users' , 'users.id' , '=' , 'homeroom_teacher.id_homeroom_teacher')
 		    ->select(
 			    'savings.*',DB::raw('sum(nominal) as total'),
-			    'class.class_name' , 'class.id as home_id_class',
+			    'class.class_name' , 'class.class_id as home_class_id',
 			    'users.name'
 		    )
-		    ->groupby('savings.id_class')
-		    ->orderBy('savings.id_class' , 'ASC')
+		    ->groupby('savings.class_id')
+		    ->orderBy('savings.class_id' , 'ASC')
 		    ->get();
 	    return view('admin.daftar-tabungan', $data);
     }
@@ -30,7 +30,7 @@ class SavingController extends Controller
 			    'savings.*' , DB::raw('sum(nominal) as total'),
 			    'students.id_student as std_id' , 'students.name_student'
 		    )
-		    ->where('savings.id_class' , $id)
+		    ->where('savings.class_id' , $id)
 		    ->groupBy('savings.id_students')
 		    ->orderBy('savings.id_students' , 'ASC')
 		    ->get();

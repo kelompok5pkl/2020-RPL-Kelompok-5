@@ -24,14 +24,14 @@
               <td class="text-center">
                 <form action="{{URL::to('/admin/delete')}}" method="post">
                 @csrf
-                <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->id}}">Edit</button>
-                <input type="hidden" name="id" value="{{$data->id}}">
+                <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->class_id}}">Edit</button>
+                <input type="hidden" name="id" value="{{$data->class_id}}">
                 <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                 </form>
               </td>
             </tr>
 
-             <div class="modal fade" id="edit{{$data->id}}">
+             <div class="modal fade" id="edit{{$data->class_id}}">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -42,7 +42,7 @@
                   </div>
                   <form method="post" action="{{URL::to('/admin/update/class')}}">
                   @csrf
-                  <input type="hidden" value="{{$data->id}}" name="id">
+                  <input type="hidden" value="{{$data->class_id}}" name="id">
                   <div class="modal-body">
                         <div class="form-group row">
                           <label for="input-1" class="col-sm-2 col-form-label">Nama Kelas</label>
@@ -125,3 +125,4 @@
   </div>
 </div>
 
+ 

@@ -15,11 +15,22 @@ class CreateSavingsTable extends Migration
     {
         Schema::create('savings', function (Blueprint $table) {
             $table->increments('id_saving');
-            $table->integer('id_students');
-            $table->integer('id_class');
+
+            $table->foreignId('class_id');
+            $table->foreign('class_id')->references('class_id')->on('class');
+
+            $table->foreignId('id_homeroom_teacher');
+            $table->foreign('id_homeroom_teacher')->references('id_homeroom_teacher')->on('homeroom_teacher'); 
+            
+            $table->foreignId('id_student');
+            $table->foreign('id_student')->references('id_student')->on('students');
+            
+           
             $table->string('nominal');
             $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
+            
         });
     }
 

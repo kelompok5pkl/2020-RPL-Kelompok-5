@@ -12,7 +12,7 @@ use App\MajorsModel;
 class StudentController extends Controller
 {
     public function listStudent(){
-    $student= Student::join('class' , 'class.id' , '=' , 'students.class_student')
+    $student= Student::join('class' , 'class.class_id' , '=' , 'students.class_id')
 	            ->join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
 		        ->get();
 
@@ -39,8 +39,8 @@ class StudentController extends Controller
     public function updateStudent (Request $request){
         $update = Student::whereIdStudent($request->input('id'))
             ->update([
-                'student_name' => $request->input('student_name'),
-                'id_class' => $request->input('id_class')
+                'name_student' => $request->input('name_student'),
+                'class_id' => $request->input('class_id')
             ]);
         if($update){
             return back()->withSuccess('Edit Data Berhasil');
@@ -50,10 +50,15 @@ class StudentController extends Controller
     }
 
     public function deleteStudent(Request $request){
-        $delete = Student::whereIdStudent($request->input('id'))->delete();
-        return back()->withSuccess('Hapus Siswa Berhasil');
+        $student = Student::whereIdStudent($request->input('id'));
+        $student->delete();
+        return redirect('admin/list-student');
+        // return back()->withSuccess('Hapus Siswa Berhasil');
     }
+// $class = ClassModel::whereId($request->input('id'));
+//         $class->delete();
 
+//         return redirect('admin/list-class');
 
     
 }

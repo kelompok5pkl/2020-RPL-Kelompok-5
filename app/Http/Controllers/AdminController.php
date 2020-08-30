@@ -32,7 +32,7 @@ class AdminController extends Controller
     }
     public function updateClass(Request $request){
       $Validator  = Validator::make($request->all(), [
-        'class_name' =>'required|min:8',
+        'class_name' =>'required',
         
         ]);
 
@@ -40,9 +40,8 @@ class AdminController extends Controller
 
             return back()->withToastError('class name Sudah digunakan');
         }
-
      
-        $class = ClassModel::whereId($request->input('id'))->first();
+        $class = ClassModel::whereId($request->input('class_id'))->first();
         $class->class_name = $request->input('class_name');
         $class->id_majors  = $request->input('id_majors');
         $class->save();
@@ -50,13 +49,11 @@ class AdminController extends Controller
     
     }
     
-    
-
     public function deleteClass(Request $request){
         // $class = ClassModel::whereId($request->input('id'))->delete();
         // return back();
 
-        $class = ClassModel::whereId($request->input('id'));
+        $class = ClassModel::whereId($request->input('class_id'));
         $class->delete();
 
         return redirect('admin/list-class');

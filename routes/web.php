@@ -36,7 +36,7 @@ Route::get('/cek_role', 'AuthController@roles');
 		//StudentController
 		Route::get('/admin/list-student', 'StudentController@listStudent');
 		Route::post('/admin/list-student','StudentController@addStudent');
-		Route::post('/admin/list-student','StudentController@updateStudent');
+		Route::post('/admin/update/student','StudentController@updateStudent');
 		Route::post('/admin/delete/student','StudentController@deleteStudent');
 
 
