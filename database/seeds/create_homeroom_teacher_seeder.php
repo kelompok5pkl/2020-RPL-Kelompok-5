@@ -13,7 +13,7 @@ class create_homeroom_teacher_seeder extends Seeder
     {
         DB::table('homeroom_teacher')->insert([
         	'id_homeroom_teacher' => '2',
-            'user_id' => '2',
+            'id_teacher' => '2',
         	'class_id' => '1'
         ]);
 

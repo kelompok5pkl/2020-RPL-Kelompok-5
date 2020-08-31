@@ -14,7 +14,7 @@ class create_saving_seeder extends Seeder
         DB::table('savings')->insert([
             'id_saving' => '1',
             'class_id' => '1',
-            'id_homeroom_teacher' => '2',
+            'id_teacher' => '2',
         	'id_student' => '1',
         	'nominal' => '2000'
         ]);

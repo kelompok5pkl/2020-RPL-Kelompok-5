@@ -18,7 +18,7 @@ class AdminController extends Controller
     {
         $no = 1;
         $majors = MajorsModel::all();
-        $class = ClassModel::join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
+        $class = ClassModel::join('majors' , 'majors.id_majors' , '=' , 'classes.id_majors')
         ->get();
         return view('admin.list-class', compact('class','majors','no'));
     }
@@ -40,8 +40,8 @@ class AdminController extends Controller
 
             return back()->withToastError('class name Sudah digunakan');
         }
-     
-        $class = ClassModel::whereId($request->input('class_id'))->first();
+     // dd($request->input('id'));
+        $class = ClassModel::where('class_id', $request->input('id'))->first();
         $class->class_name = $request->input('class_name');
         $class->id_majors  = $request->input('id_majors');
         $class->save();
@@ -53,7 +53,7 @@ class AdminController extends Controller
         // $class = ClassModel::whereId($request->input('id'))->delete();
         // return back();
 
-        $class = ClassModel::whereId($request->input('class_id'));
+        $class = ClassModel::whereClassId($request->input('id'));
         $class->delete();
 
         return redirect('admin/list-class');

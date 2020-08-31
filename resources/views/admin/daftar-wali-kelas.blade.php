@@ -27,7 +27,7 @@
               <td class="text-center">
                 <form action="{{URL::to('/admin/delete/homeroom-teacher')}}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="{{$data->id_homeroom_teacher}}">
+                <input type="hidden" name="class_id" value="{{$data->id_teacher}}">
                 <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                 </form>
               </td>
@@ -64,7 +64,7 @@
       <div class="form-group row">
         <label for="input-1" class="col-sm-2 col-form-label">Set Wali Kelas</label>
         <div class="col-sm-8">
-          <select class="form-control" name="id_homeroom_teacher" required="">
+          <select class="form-control" name="id_teacher" required="">
             <option value="">Pilih Guru</option>
             @foreach($teacher as $data)
             <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -75,10 +75,10 @@
       <div class="form-group row">
           <label for="input-1" class="col-sm-2 col-form-label">Set Kelas</label>
           <div class="col-sm-8">
-            <select class="form-control" name="id_class" required="">
+            <select class="form-control" name="class_id" required="">
               <option value="">Pilih Kelas</option>
               @foreach($class as $data)
-              <option value="{{ $data->id }}">{{ $data->class_name }}</option>
+              <option value="{{ $data->class_id }}">{{ $data->class_name }}</option>
               @endforeach
             </select>
           </div>

@@ -11,13 +11,13 @@ class create_class_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('class')->insert([
+        DB::table('classes')->insert([
             'class_id' => '1',
             'id_majors'  => '1',
         	'class_name' => 'XII Rekayasa Perangkat Lunak']);
             
 
-        DB::table('class')->insert([
+        DB::table('classes')->insert([
             'class_id'    => '2',
             'id_majors'   => '2',
             'class_name' => 'XII Multimedia' ]);

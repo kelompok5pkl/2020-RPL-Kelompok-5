@@ -67,24 +67,31 @@ class TeacherController extends Controller
         public function listHomeroomTeacher(Request $request){
         $teacher = User::Role('guru')->get();
         $class = ClassModel::all();
-        $wl = HomeroomTeacher::join('users' , 'users.id' , '=' , 'homeroom_teacher.id_homeroom_teacher')
-            ->join('class' , 'class.class_id' , '=' , 'homeroom_teacher.class_id')
-            ->join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
+        $wl = HomeroomTeacher::join('users' , 'users.id' , '=' , 'homeroom_teacher.id_teacher')
+            ->join('classes' , 'classes.class_id' , '=' , 'homeroom_teacher.class_id')
+            ->join('majors' , 'majors.id_majors' , '=' , 'classes.id_majors')
+            ->where('classes.deleted_at' , Null)
             ->get();
         $no = 1;
         return view ('admin.daftar-wali-kelas',compact('teacher','class','wl','no'));
     }
     
     public function SetHomeroomTeacher(Request $request){
-        $wl = HomeroomTeacher::whereIdHomeroomTeacher($request->input('id_homeroom_teacher'))->first();
+        $wl = HomeroomTeacher::whereIdTeacher($request->input('id_teacher'))->first();
         if($wl){
             return back()->withToastError('Gagal, Guru Sudah Menjadi Wali kelas');
         } else {
-            $create = new HomeroomTeacher();
-            $create->id_homeroom_teacher = $request->input('id_homeroom_teacher');
-            $create->class_id = $request->input('class_id');
-            $create->save();
-            return back()->withSuccess('Berhasil Menjadikan Wali Kelas');
+            $cek_class = HomeroomTeacher::whereClassId($request->input('class_id'))->first();
+            if ($cek_class) {
+                return back()->withToastError('Kelas telah digunakan');
+            } else{
+                $create = new HomeroomTeacher();
+                $create->id_teacher = $request->input('id_teacher');
+                $create->class_id = $request->input('class_id');
+                $create->save();
+                return back()->withSuccess('Berhasil Menjadikan Wali Kelas');
+            }
+            
         }
     }
 

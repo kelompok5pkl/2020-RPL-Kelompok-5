@@ -24,6 +24,7 @@
               <td>{{$data->nisn}}</td>
               <td>{{$data->name_student}}</td>
               <td>{{$data->class_name}}</td>
+              <!-- <td>{{$data->class_id}}</td> -->
               <td>{{$data->majors_name}}</td>
               <td class="text-center">
 
@@ -57,21 +58,23 @@
                         <div class="form-group row">
                           <label for="input-1" class="col-sm-2 col-form-label">Nama Siswa</label>
                           <div class="col-sm-8">
-                            <input type="text" value="{{$data->name_student}}" class="form-control" name="student_name" id="input-1" required="">
+                            <input type="text" value="{{$data->name_student}}" class="form-control" name="name_student" id="input-1" required="">
                           </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
+                            <label for="input-1" class="col-sm-2 col-form-label">Kelas</label>
                             <div class="col-sm-8">
-                              <select class="form-control" name="id_class" required="">
+                              <select class="form-control" name="class_id" required="">
                                 <option value="">Pilih Kelas</option>
                                 @foreach($class as $data)
-                                <option value="{{ $data->id }}">{{ $data->class_name}}</option>
+                                <option value="{{ $data->class_id }}">{{ $data->class_name}}</option>
                                 @endforeach
                               </select>
                             </div>
                         </div>
+                        
+
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -129,12 +132,15 @@
                   <select class="form-control" name="class_id" required="">
                     <option value="">Pilih Kelas</option>
                     @foreach($class as $data)
-                    <option value="{{ $data->id }}">{{ $data->class_name }}</option>
+                    <option value="{{ $data->class_id }}">{{ $data->class_name }}</option>
                     @endforeach
                   </select>
-                </div>
+                    </div>
+                </div>                
             </div>
-      </div>
+
+           
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
         <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save changes</button>

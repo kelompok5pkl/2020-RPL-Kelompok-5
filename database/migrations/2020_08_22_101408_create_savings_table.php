@@ -17,10 +17,10 @@ class CreateSavingsTable extends Migration
             $table->increments('id_saving');
 
             $table->foreignId('class_id');
-            $table->foreign('class_id')->references('class_id')->on('class');
+            $table->foreign('class_id')->references('class_id')->on('classes');
 
-            $table->foreignId('id_homeroom_teacher');
-            $table->foreign('id_homeroom_teacher')->references('id_homeroom_teacher')->on('homeroom_teacher'); 
+            $table->foreignId('id_teacher');
+            $table->foreign('id_teacher')->references('id_teacher')->on('homeroom_teacher'); 
             
             $table->foreignId('id_student');
             $table->foreign('id_student')->references('id_student')->on('students');

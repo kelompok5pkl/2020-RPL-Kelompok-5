@@ -1,8 +1,8 @@
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">RockerAdmin</h5>
+       
+       <center><h5 class="logo-text">Admin</h5></center>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">

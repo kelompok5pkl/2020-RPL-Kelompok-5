@@ -16,7 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id('id_student');
             $table->foreignId('class_id');
-            $table->foreign('class_id')->references('class_id')->on('class');
+            $table->foreign('class_id')->references('class_id')->on('classes');
             $table->integer('nisn');
             $table->string('name_student');
             $table->timestamps();

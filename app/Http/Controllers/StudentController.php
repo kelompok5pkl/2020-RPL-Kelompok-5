@@ -12,35 +12,40 @@ use App\MajorsModel;
 class StudentController extends Controller
 {
     public function listStudent(){
-    $student= Student::join('class' , 'class.class_id' , '=' , 'students.class_id')
-	            ->join('majors' , 'majors.id_majors' , '=' , 'class.id_majors')
-		        ->get();
+    $student= Student::leftjoin('classes' , 'classes.class_id' , '=' , 'students.class_id')
+                ->join('majors' , 'majors.id_majors' , '=' , 'classes.id_majors')
+                ->where('classes.deleted_at' , '=' , null)
+                ->get();
 
-		$no = 1;
-		$class = ClassModel::all();
-		return view('admin.list-student', compact('student', 'no', 'class'));
+        $no = 1;
+        $class = ClassModel::all();
+        return view('admin.list-student', compact('student', 'no', 'class'));
     }
 
     public function addStudent(Request $request){
-    	$validator = Validator::make($request->all(), [
-    		'nisn' => 'required|min:3|max:10|unique:students',
-    	], 	
-    	[
-    		'nisn.required' => 'NISN Sudah Tersedia',
-    	]);
-    	if($validator->fails()){
-    		return back()->withToastError('NISN Sudah Digunakan');
-    	}
-    	$create = Student::create($request->all());
-    	return back()->withSuccess('Tambah Siswa Berhasil');
+        $student = Student::whereNisn($request->nisn)->count();
+        // dd($request);
+        if ($student == 0) {
+         $validator = Validator::make($request->all(), [
+                'nisn' => 'required|min:3|max:10'
+
+            ]);
+            $create = Student::create($request->all());
+            return back()->withSuccess('Tambah Siswa Berhasil');
+        } else {
+            return back()->withWarning('Nisn Sudah Digunakan');
+        }
+
+    
         
     }
 
     public function updateStudent (Request $request){
         $update = Student::whereIdStudent($request->input('id'))
             ->update([
-                'name_student' => $request->input('name_student'),
-                'class_id' => $request->input('class_id')
+                'class_id' => $request->input('class_id'),
+                'name_student' => $request->input('name_student')
+                
             ]);
         if($update){
             return back()->withSuccess('Edit Data Berhasil');

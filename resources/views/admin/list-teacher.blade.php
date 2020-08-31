@@ -86,10 +86,10 @@
                     <div class="form-group row">
                       <label for="input-1" class="col-sm-2 col-form-label">Set Kelas</label>
                       <div class="col-sm-8">
-                        <select class="form-control" name="id_class" required="">
+                        <select class="form-control" name="class_id" required="">
                           <option value="">Pilih Kelas</option>
                           @foreach($class as $data)
-                          <option value="{{ $data->id }}">{{ $data->class_name }}</option>
+                          <option value="{{ $data->class_id }}">{{ $data->class_name }}</option>
                           @endforeach
                         </select>
                       </div>
