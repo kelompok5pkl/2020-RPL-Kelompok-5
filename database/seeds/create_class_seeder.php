@@ -14,12 +14,14 @@ class create_class_seeder extends Seeder
         DB::table('classes')->insert([
             'class_id' => '1',
             'id_majors'  => '1',
-        	'class_name' => 'XII Rekayasa Perangkat Lunak']);
+        	'class_name' => 'XII Rekayasa Perangkat Lunak 1'
+        ]);
             
+         DB::table('classes')->insert([
+            'class_id' => '2',
+            'id_majors'  => '2',
+            'class_name' => 'XII Rekayasa Perangkat Lunak 2'
+        ]);
 
-        DB::table('classes')->insert([
-            'class_id'    => '2',
-            'id_majors'   => '2',
-            'class_name' => 'XII Multimedia' ]);
     }
 }

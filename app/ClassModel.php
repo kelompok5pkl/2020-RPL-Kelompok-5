@@ -12,7 +12,7 @@ class ClassModel extends Model
     protected $table = 'classes';
     protected $guarded = [];
     protected $primaryKey = 'class_id';
-    protected $fillable = ['class_name','id_majors'];
+    protected $fillable = ['id_student','class_name','id_majors'];
     protected $dates = ['deleted_at'];
 
 }

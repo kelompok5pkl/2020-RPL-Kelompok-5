@@ -42,7 +42,7 @@
                             <img src="assets/images/logo-icon.png">
                         </div>
                      <div class="card-title text-uppercase text-center py-3">Sign In</div>
-                       <form action="" method="POST" action="{{ route('login') }}">
+                       <form method="POST" action="{{ route('login') }}">
                         @csrf
                           <div class="form-group">
                            <div class="position-relative has-icon-left">

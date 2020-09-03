@@ -6,9 +6,14 @@ use Illuminate\Http\Request;
 use App\ClassModel;
 use App\MajorsModel;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Middleware\DisablePreventBack;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('DisablePreventBack');
+    }
     public function index()
     {
     	return view('admin.dashboard');
@@ -29,7 +34,7 @@ class AdminController extends Controller
     	$insert->id_majors = $request->input('id_majors');
     	$insert->save();
     	return redirect('admin/list-class');
-    }
+    }    
     public function updateClass(Request $request){
       $Validator  = Validator::make($request->all(), [
         'class_name' =>'required',

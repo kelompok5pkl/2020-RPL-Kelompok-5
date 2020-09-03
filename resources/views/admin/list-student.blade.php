@@ -143,7 +143,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-        <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save changes</button>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save </button>
       </div>
       </form>
     </div>

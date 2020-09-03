@@ -26,7 +26,7 @@
                 @csrf
                 <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#edit{{$data->class_id}}">Edit</button>
                 <input type="hidden" name="id" value="{{$data->class_id}}">
-                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                <input type="submit" value="Hapus" class="btn btn-danger btn-sm">
                 </form>
               </td>
             </tr>

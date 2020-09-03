@@ -15,7 +15,7 @@ class AuthController extends Controller
     		return redirect('/admin/dashboard');
 
     	}elseif ($a =='2') {
-    		return redirect('/guru/dashboard');
+    		return redirect('/walikelas/dashboard');
     	}else{
     		return redirect('/login');
     	}

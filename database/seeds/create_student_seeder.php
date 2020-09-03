@@ -21,7 +21,7 @@ class create_student_seeder extends Seeder
         
         DB::table('students')->insert([   
             'id_student'  => 2,
-            'class_id' => 2,
+            'class_id' => 1,
             'nisn' => '181910002',
         	'name_student' => 'Rismawati ',
         

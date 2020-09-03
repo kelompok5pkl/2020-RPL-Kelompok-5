@@ -50,7 +50,7 @@ class StudentController extends Controller
         if($update){
             return back()->withSuccess('Edit Data Berhasil');
         } else {
-            return back()->withToastError('Update Gagal');
+            return back()->withToastError('Edit Gagal');
         }
     }
 
@@ -58,12 +58,7 @@ class StudentController extends Controller
         $student = Student::whereIdStudent($request->input('id'));
         $student->delete();
         return redirect('admin/list-student');
-        // return back()->withSuccess('Hapus Siswa Berhasil');
     }
-// $class = ClassModel::whereId($request->input('id'));
-//         $class->delete();
-
-//         return redirect('admin/list-class');
-
+    
     
 }

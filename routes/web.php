@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/cek_role', 'AuthController@roles');
 
 
@@ -58,13 +58,16 @@ Route::get('/cek_role', 'AuthController@roles');
 		Route::get('/admin/list-saving/detail/{id}' , 'SavingController@detailSaving');
 		Route::get('/admin/list-saving/detail/student/{id}' , 'SavingController@studentSavingDetail');
 		Route::post('/admin/saving' , 'SavingController@Saving');
+
 	});
 
 	Route::group(['middleware' => ['role:guru']], function () {
-		Route::get('/guru', function (){ return 'ini guru'; });
-		Route::get('/guru/daftar-honor', function (){ return 'ini GAJI guru'; });
-
-		
+		Route::get('/walikelas/dashboard', 'WalikelasController@detailSaving');
+		Route::get('/walikelas/tabungan/detail/{id}','WalikelasController@studentSavingDetail');
+		Route::get('/walikelas/tambah-tabungan', 'WalikelasController@TambahTabungan');
+		route::get('walikelas/tabungan' , 'WalikelasController@detailSaving');
+		Route::post('/walikelas/tambah-tabungan' , 'WalikelasController@SaveTabungan');
+			
 	});
 
 
