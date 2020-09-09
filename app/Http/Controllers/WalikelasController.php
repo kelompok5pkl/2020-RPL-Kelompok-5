@@ -11,6 +11,13 @@ use App\Student;
 
 class WalikelasController extends Controller
 {
+
+	public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('DisablePreventBack');
+    }
+    
     public function index()
     {
     	return view('walikelas.dashboard');
@@ -40,6 +47,8 @@ class WalikelasController extends Controller
 		$student = Student::whereClassId($wl->class_id)->get();
 		return view ('walikelas.tambah-tabungan', compact('student'));	
 	}
+
+	
 	public function SaveTabungan(Request $request){
 		$wl = HomeroomTeacher::whereIdTeacher(Auth::user()->id)->first();
 		$saving = new Saving();
@@ -52,3 +61,4 @@ class WalikelasController extends Controller
 		return back()->withSuccess('Tambah Tabungan Berhasil');
 	} 
 }
+ 

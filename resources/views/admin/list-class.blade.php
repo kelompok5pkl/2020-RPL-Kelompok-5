@@ -54,7 +54,7 @@
                             <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
                             <div class="col-sm-8">
                               <select class="form-control" name="id_majors" required="">
-                                <option value="">Pilih Kelas</option>
+                                <option value="">Pilih Jurusan</option>
                                 @foreach($majors as $data)
                                 <option value="{{ $data->id_majors }}">{{ $data->majors_name }}</option>
                                 @endforeach
@@ -108,7 +108,7 @@
                 <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
                 <div class="col-sm-8">
                   <select class="form-control" name="id_majors" required="">
-                    <option value="">Pilih Kelas</option>
+                    <option value="">Pilih Jurusan</option>
                     @foreach($majors as $data)
                     <option value="{{ $data->id_majors }}">{{ $data->majors_name }}</option>
                     @endforeach

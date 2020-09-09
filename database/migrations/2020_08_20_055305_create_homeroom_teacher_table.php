@@ -23,7 +23,7 @@ class CreateHomeroomTeacherTable extends Migration
             $table->foreign('class_id')->references('class_id')->on('classes');
 
             $table->timestamps();
-            $table->softDeletes();
+            $table->SoftDeletes();
         });
     }
 

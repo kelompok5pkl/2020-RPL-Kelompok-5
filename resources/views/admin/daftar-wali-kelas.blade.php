@@ -28,7 +28,7 @@
                 <form action="{{URL::to('/admin/delete/homeroom-teacher')}}" method="post">
                 @csrf
                 <input type="hidden" name="class_id" value="{{$data->id_teacher}}">
-                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                <input type="submit" value="Hapus" class="btn btn-danger btn-sm">
                 </form>
               </td>
             </tr>

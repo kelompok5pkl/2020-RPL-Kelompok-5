@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <button class="btn btn-primary m-1" data-toggle="modal" data-target="#AddStudent">Tambah Siswa</button>
     <div class="card">
-      <div class="card-header"><i class="fa fa-table"></i> Data Kelas</div>
+      <div class="card-header"><i class="fa fa-table"></i> Data Siswa</div>
       <div class="card-body">
         <div class="table-responsive">
           <table id="example" class="table table-bordered">
@@ -127,7 +127,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="input-1" class="col-sm-2 col-form-label">Jurusan</label>
+                <label for="input-1" class="col-sm-2 col-form-label">Kelas</label>
                 <div class="col-sm-8">
                   <select class="form-control" name="class_id" required="">
                     <option value="">Pilih Kelas</option>

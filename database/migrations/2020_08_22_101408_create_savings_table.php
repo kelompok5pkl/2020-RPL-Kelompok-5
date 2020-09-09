@@ -29,7 +29,6 @@ class CreateSavingsTable extends Migration
             $table->string('nominal');
             $table->string('status');
             $table->timestamps();
-            $table->softDeletes();
             
         });
     }

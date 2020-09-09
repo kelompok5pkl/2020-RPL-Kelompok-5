@@ -25,7 +25,8 @@ class TeacherController extends Controller
     public function addTeacher(Request $request)
     {
 
-    	$user = User::whereEmail($request->input('email'))->first();
+    	// cek email ada atau tidak
+        $user = User::whereEmail($request->input('email'))->first();
     	if($user){
     		return back()->withToashError('Email Sudah Digunakan');
     	}else{
@@ -33,7 +34,7 @@ class TeacherController extends Controller
     		$create->name 	= $request->input('name');
     		$create->email 	= $request->input('email');
     		$create->password= Hash::make('123');
-    		$save  = $create->save();
+    		$save  = $create->save(); // menyimpan
 
     		if($save){
     			$role = User::whereId($create->id)->first()->assignRole('guru');
@@ -41,6 +42,7 @@ class TeacherController extends Controller
     				return back()->withSucces('Guru Berhasil Ditambahkan');
 
     			}else {
+                    User::whereId($create->id)->delete();
     				return back()->withErrors('Gagal Ditambahkan');
 
     			}
@@ -60,7 +62,7 @@ class TeacherController extends Controller
     public function deleteTeacher(Request $request)
     {
    		User::whereId($request->input('id'))->delete();
-   		return back()->withToashSucces('Berhasil Di Hapus');
+   		return back()->withToastSucces('Berhasil Di Hapus');
     }
 
 
@@ -97,7 +99,7 @@ class TeacherController extends Controller
 
     public function DeleteHomeroomTeacher(Request $request){
         HomeroomTeacher::whereIdHomeroomTeacher($request->input('id'))->delete();
-        return back()->withSuccess('Data Berhasil Dihapus');
+        return back()->withWarning('Data Tidak Dapat Dihapus');
     }
 
 }

@@ -11,10 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
+        // urutan Multi Auth
         $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(ModelHasRoleSeeder::class);
 
+        // urutan dataseeder
          $this->call(create_majors_table::class);
          $this->call(create_class_seeder::class);
          $this->call(create_student_seeder::class);

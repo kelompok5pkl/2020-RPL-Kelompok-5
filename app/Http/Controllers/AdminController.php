@@ -12,6 +12,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         $this->middleware('DisablePreventBack');
     }
     public function index()
@@ -35,6 +36,7 @@ class AdminController extends Controller
     	$insert->save();
     	return redirect('admin/list-class');
     }    
+
     public function updateClass(Request $request){
       $Validator  = Validator::make($request->all(), [
         'class_name' =>'required',

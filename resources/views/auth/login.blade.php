@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Rocker - Bootstrap4  Admin Dashboard Template</title>
+  <title>Login </title>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <!-- Bootstrap core CSS-->
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <div class="card-content p-3">
                         <div class="text-center">
-                            <img src="assets/images/logo-icon.png">
+                            <img src="{{URL:: to('assets/images/mahaputra.jfif ')}}">
                         </div>
                      <div class="card-title text-uppercase text-center py-3">Sign In</div>
                        <form method="POST" action="{{ route('login') }}">
@@ -62,18 +62,8 @@
                               </div>
                            </div>
                           </div>
-                          <div class="form-row mr-0 ml-0">
-                          <div class="form-group col-6">
-                              <div class="icheck-primary">
-                               <input type="checkbox" id="user-checkbox" checked="" />
-                               <label for="user-checkbox">Remember me</label>
-                             </div>
-                            </div>
-                            <div class="form-group col-6 text-right">
-                             <a href="authentication-reset-password2.html">Reset Password</a>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-outline-primary btn-block waves-effect waves-light">Sign In</button>
+                              
+                       <button type="submit" class="btn btn-outline-primary btn-block waves-effect waves-light">Sign In</button>
                     
                     </form>
                  </div>

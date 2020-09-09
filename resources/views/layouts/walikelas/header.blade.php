@@ -9,7 +9,7 @@
     <li class="nav-item">
       <form class="search-bar">
         <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+         <a href="javascript:void();"><i class="icon-magnifier">Search</i></a>
       </form>
     </li>
   </ul>
@@ -23,6 +23,8 @@
               @csrf
           </form>
     </li>
+  
+
   </ul>
 </nav>
 </header>

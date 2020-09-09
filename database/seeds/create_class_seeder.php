@@ -17,11 +17,12 @@ class create_class_seeder extends Seeder
         	'class_name' => 'XII Rekayasa Perangkat Lunak 1'
         ]);
             
-         DB::table('classes')->insert([
+        DB::table('classes')->insert([
             'class_id' => '2',
-            'id_majors'  => '2',
+            'id_majors'  => '1',
             'class_name' => 'XII Rekayasa Perangkat Lunak 2'
         ]);
+
 
     }
 }

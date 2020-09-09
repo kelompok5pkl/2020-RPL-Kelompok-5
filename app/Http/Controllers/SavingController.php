@@ -52,7 +52,7 @@ class SavingController extends Controller
 			    'students.id_student as std_id' , 'students.name_student'
 		    )
 		    ->where('savings.class_id' , $wl->class_id)
-		    ->groupBy('savings.id_student')
+		    ->groupBy('savings.id_student' , 'ASC')
 		    ->orderBy('students.name_student' , 'ASC')
 		    ->get();
 	    return view('guru.daftar-tabungan-detail', $data);

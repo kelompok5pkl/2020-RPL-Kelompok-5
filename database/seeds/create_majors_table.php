@@ -11,14 +11,14 @@ class create_majors_table extends Seeder
      */
     public function run()
     {
-         DB::table('majors')->insert([
+        DB::table('majors')->insert([
         	'id_majors' => '1',
-        	'majors_name' => 'Rekayasa Perangkat Lunak 1'
+        	'majors_name' => 'Rekayasa Perangkat Lunak'
+        ]);
+        DB::table('majors')->insert([
+            'id_majors' => '2',
+            'majors_name' => 'Multimedia'
         ]);
 
-         DB::table('majors')->insert([
-        	'id_majors' => '2',
-        	'majors_name' => 'Rekayasa Perangkat Lunak 2'
-        ]);
     }
 }

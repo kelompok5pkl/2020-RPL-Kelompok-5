@@ -1,5 +1,6 @@
 @extends('layouts.walikelas-master')
 @section('content')
+
   <div class="row">
         <div class="col-lg-12">
           <div class="card">
@@ -31,6 +32,8 @@
             </div>
           </div>
         </div>
+}
+}
      
 
 

@@ -24,7 +24,14 @@ class create_student_seeder extends Seeder
             'class_id' => 1,
             'nisn' => '181910002',
         	'name_student' => 'Rismawati ',
-        
+
+        ]);
+
+        DB::table('students')->insert([   
+            'id_student'  => 3,
+            'class_id' => 2,
+            'nisn' => '181910003',
+            'name_student' => 'Bowie Sambora',
 
         ]);
 

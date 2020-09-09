@@ -27,7 +27,7 @@ Route::get('/cek_role', 'AuthController@roles');
 	Route::group(['middleware' => ['role:admin']], function () {
 		
 		//AdminController
-		Route::get('/admin/dashboard','AdminController@index');
+		Route::get('/admin/dashboard','AdminController@listClass');
 		Route::get('/admin/list-class', 'AdminController@listClass');
 		Route::post('/admin/list-class', 'AdminController@saveClass');
 		Route::post('/admin/update/class', 'AdminController@updateClass');
@@ -42,12 +42,11 @@ Route::get('/cek_role', 'AuthController@roles');
 
 		//TeacherController
 		Route::get('/admin/list-teacher','TeacherController@listTeacher');
-		Route::post('/admin/list-teacher','TeacherController@listTeacher');
 		Route::post('/admin/list-teacher','TeacherController@addTeacher');
 		Route::post('/admin/update/teacher','TeacherController@updateTeacher');
 		Route::post('/admin/delete/teacher','TeacherController@deleteTeacher');
-		
 		Route::post('/admin/set/homeroom-teacher' , 'TeacherController@SetHomeroomTeacher');
+		
 		Route::get('/admin/list/homeroom-teacher' , 'TeacherController@listHomeroomTeacher');
 		Route::post('/admin/update/teacher' , 'TeacherController@updateTeacher');
 		Route::post('/admin/delete/teacher' , 'TeacherController@deleteTeacher');
@@ -65,8 +64,9 @@ Route::get('/cek_role', 'AuthController@roles');
 		Route::get('/walikelas/dashboard', 'WalikelasController@detailSaving');
 		Route::get('/walikelas/tabungan/detail/{id}','WalikelasController@studentSavingDetail');
 		Route::get('/walikelas/tambah-tabungan', 'WalikelasController@TambahTabungan');
-		route::get('walikelas/tabungan' , 'WalikelasController@detailSaving');
 		Route::post('/walikelas/tambah-tabungan' , 'WalikelasController@SaveTabungan');
+		route::get('walikelas/tabungan' , 'WalikelasController@detailSaving');
+		
 			
 	});
 

@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <button class="btn btn-primary m-1" data-toggle="modal" data-target="#AddTeacher">Tambah Guru</button>
     <div class="card">
-      <div class="card-header"><i class="fa fa-table"></i> Data Kelas</div>
+      <div class="card-header"><i class="fa fa-table"></i> Data Guru</div>
       <div class="card-body">
         <div class="table-responsive">
           <table id="example" class="table table-bordered">
@@ -27,7 +27,7 @@
                   <button type="button" class="btn btn-primary m-1 btn-sm" data-toggle="modal" data-target="#editTeacher{{$data->id}}">Edit</button>
                   <button type="button" class="btn btn-success m-1 btn-sm" data-toggle="modal" data-target="#setWaliKelas{{$data->id}}">Set Wali Kelas</button>
                   <input type="hidden" name="id" value="{{$data->id}}">
-                  <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                  <input type="submit" value="Hapus" class="btn btn-danger btn-sm">
                 </form>
 
               </td>
@@ -119,7 +119,7 @@
 
 
 @endsection
-<div class="modal fade" id="addTeacher">
+<div class="modal fade AddTeacher" id="addTeacher">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

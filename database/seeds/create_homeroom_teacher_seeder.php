@@ -12,10 +12,9 @@ class create_homeroom_teacher_seeder extends Seeder
     public function run()
     {
         DB::table('homeroom_teacher')->insert([
-        	'id_homeroom_teacher' => '2',
+        	'id_homeroom_teacher' => '1',
             'id_teacher' => '2',
         	'class_id' => '1'
         ]);
-
     }
 }
