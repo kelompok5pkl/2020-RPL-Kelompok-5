@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use App\ClassModel;
 use App\User;
 use App\HomeroomTeacher;
+use App\Saving;
 
 
 class TeacherController extends Controller
@@ -61,8 +62,22 @@ class TeacherController extends Controller
 
     public function deleteTeacher(Request $request)
     {
-   		User::whereId($request->input('id'))->delete();
-   		return back()->withToastSucces('Berhasil Di Hapus');
+        $id = $request->input('id');
+   		//User::whereId($request->input('id'))->delete();
+     $delete = HomeroomTeacher::join('users','homeroom_teacher.id_teacher','=','users.id')
+                            ->where('homeroom_teacher.id_teacher','=',$id)
+                            ->where('users.id','=',$id)
+                            ->first();
+        
+            
+           //dd($delete);
+                            if ($delete == '0') {
+                                return back()->withToastSucces('Berhasil Di Hapus');
+                            }else{
+                                return back()->withWarning('Data tidak dapat di Hapus');
+                            }
+
+   		
     }
 
 
@@ -73,7 +88,7 @@ class TeacherController extends Controller
             ->join('classes' , 'classes.class_id' , '=' , 'homeroom_teacher.class_id')
             ->join('majors' , 'majors.id_majors' , '=' , 'classes.id_majors')
             ->where('classes.deleted_at' , Null)
-            ->get();
+            ->get(); 
         $no = 1;
         return view ('admin.daftar-wali-kelas',compact('teacher','class','wl','no'));
     }
