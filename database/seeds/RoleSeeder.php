@@ -11,7 +11,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $users = [ 
         			['id' =>'1','name' => 'admin','guard_name' => 'web',],
         			['id' =>'2','name' => 'guru','guard_name' => 'web',],
         		 ];
