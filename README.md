@@ -7,25 +7,34 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Panduan Penggunaan Git
+## **Panduan Penggunaan Git**
 
-- Mengunduh repository ke dalam komputer
-- Memperbarui repository yang telah diunduh
-- Mengunggah perubahan ke dalam repository
-- Menghapus file
-- Branching
-- Perintah tambahan
-- Perintah tambahan gitignore
+- **Mengunduh repository ke dalam komputer**
+- **Memperbarui repository yang telah diunduh**
+- **Mengunggah perubahan ke dalam repository**
+- **Menghapus file**
+- **Branching**
+- **Perintah tambahan**
+- **Perintah tambahan gitignore**
 
-## Mengunduh Repository
+## **Mengunduh Repository**
   Unduh repository ke dalam komputer menggunakan perintah 
-  ```bash 
-  $ git clone.
+  ```bash git clone. ``` Url Repository dapat dilihat dalam repository yang di inginkan.
+  ```bash git clone <url repository> <cd d> 
   ```
 
-## Laravel Sponsors
+#### **Contoh**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+## **Memperbarui Repository**
+	Perbarui repository yang telah diunduh ke dalam komputer menggunakan perintah ```bash git pull. ``` 
+ ```bash git pull origin <nama branch>  ```
+
+#### **Contoh**
+```bash git pull https://github.com/AhmadSuherman/authentifikasi master From https://github.com/AhmadSuherman/authentifikasi
+* branch 		master 		-> FETCH_HEAD
+Already up-to-date.  ```
+
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
